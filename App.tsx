@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { ActivityIndicator, View, Text, StatusBar, Platform } from 'react-native';
+import { ActivityIndicator, View, Text, StatusBar, Platform, AppState, AppStateStatus } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { GameContext, initialProgress } from './src/data/recipes';
-import { playBackgroundMusic, stopBackgroundMusic } from './src/utils/SoundManager';
+import soundManager, { playBackgroundMusic, stopBackgroundMusic, pauseBackgroundMusic, resumeBackgroundMusic } from './src/utils/SoundManager';
 import StorageService from './src/utils/StorageService';
 
 import MainMenuScreen from './src/screens/MainMenuScreen/MainMenuScreen';
@@ -28,6 +28,10 @@ function App() {
     const loadUserData = async () => {
       try {
         console.log('🚀 Loading user data from storage...');
+        
+        // Initialize sound system first
+        await soundManager.initializeSounds();
+        console.log('🔊 Sound system initialized');
         
         // Load all user data in parallel
         const [userProgress, userStats, userAchievements, userSettings] = await Promise.all([
@@ -67,21 +71,39 @@ function App() {
     loadUserData();
   }, []);
 
-  // Play background music and handle cleanup
+  // Play background music, handle app state changes, and cleanup
   useEffect(() => {
-    if (!loading) {
+    if (!loading && settings?.autoPlayMusic) {
       playBackgroundMusic();
     }
 
+    // Handle app state changes (pause music when app goes to background)
+    const handleAppStateChange = (nextAppState: AppStateStatus) => {
+      if (nextAppState === 'background' || nextAppState === 'inactive') {
+        console.log('📱 App backgrounded - pausing music');
+        pauseBackgroundMusic();
+      } else if (nextAppState === 'active') {
+        console.log('📱 App foregrounded - resuming music');
+        if (settings?.musicEnabled && settings?.autoPlayMusic) {
+          resumeBackgroundMusic();
+        }
+      }
+    };
+
+    const subscription = AppState.addEventListener('change', handleAppStateChange);
+
     return () => {
+      subscription.remove();
       stopBackgroundMusic();
+      soundManager.releaseAllSounds();
+      
       if (sessionId) {
         StorageService.endSession().then(() => {
           console.log('📊 Session ended:', sessionId);
         });
       }
     };
-  }, [loading, sessionId]);
+  }, [loading, sessionId, settings]);
 
   const updateProgress = async (recipeId: string, newStats: any) => {
     try {

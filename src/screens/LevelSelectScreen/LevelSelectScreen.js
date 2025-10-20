@@ -192,6 +192,7 @@ const styles = StyleSheet.create({
   listContainer: {
     flex: 1,
     paddingTop: theme.spacing.lg,
+    alignItems: 'center',
   },
   list: {
     paddingHorizontal: theme.spacing.sm,

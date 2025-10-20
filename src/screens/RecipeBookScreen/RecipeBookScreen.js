@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect, useRef } from 'react';
-import { View, Text, StyleSheet, FlatList, TouchableOpacity, Animated, Dimensions } from 'react-native';
+import { View, Text, StyleSheet, FlatList, TouchableOpacity, Animated, Dimensions, Image } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
 import { RECIPES, GameContext } from '../../data/recipes';
@@ -142,12 +142,18 @@ const RecipeCard = ({ item, index }) => {
             
             <View style={styles.ingredientsContainer}>
               <Text style={styles.ingredientsLabel}>Ingredients:</Text>
-              {item.ingredients?.map((ingredient, idx) => (
-                <View key={idx} style={styles.ingredientRow}>
-                  <Text style={styles.ingredientBullet}>•</Text>
-                  <Text style={styles.ingredientText}>{ingredient.name}</Text>
-                </View>
-              ))}
+              {item.ingredients && item.ingredients.length > 0 ? (
+                item.ingredients.map((ingredient, idx) => (
+                  <View key={idx} style={styles.ingredientRow}>
+                    <Text style={styles.ingredientBullet}>•</Text>
+                    <Text style={styles.ingredientText}>
+                      {typeof ingredient === 'string' ? ingredient : ingredient.name}
+                    </Text>
+                  </View>
+                ))
+              ) : (
+                <Text style={styles.ingredientText}>No ingredients listed</Text>
+              )}
             </View>
             
             <View style={styles.funFactContainer}>
@@ -163,7 +169,7 @@ const RecipeCard = ({ item, index }) => {
   );
 };
 
-const RecipeBookScreen = () => {
+const RecipeBookScreen = ({ navigation }) => {
   const { progress } = useContext(GameContext);
   const headerAnim = useRef(new Animated.Value(0)).current;
   const emptyAnim = useRef(new Animated.Value(0)).current;
@@ -242,6 +248,15 @@ const RecipeBookScreen = () => {
             end={{ x: 1, y: 1 }}
             style={styles.headerGradient}
           >
+            <TouchableOpacity
+              style={styles.backButton}
+              onPress={() => {
+                ReactNativeHapticFeedback.trigger('impactLight');
+                navigation.goBack();
+              }}
+            >
+             <Image source={require('../../assets/images/back-icon.png')} style={{ width: 24, height: 12 }} />
+            </TouchableOpacity>
             <Text style={styles.title}>📖 My Recipe Book</Text>
             <Text style={styles.subtitle}>
               {unlockedRecipes.length} recipe{unlockedRecipes.length !== 1 ? 's' : ''} unlocked
@@ -288,6 +303,19 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     padding: 20,
     ...theme.shadows.medium,
+  },
+  backButton: {
+    alignSelf: 'flex-start',
+    marginBottom: 10,
+    paddingHorizontal: 15,
+    paddingVertical: 8,
+    backgroundColor: 'rgba(255, 255, 255, 0.3)',
+    borderRadius: 20,
+  },
+  backButtonText: {
+    fontSize: 16,
+    fontFamily: 'BalsamiqSans-Bold',
+    color: 'white',
   },
   title: {
     fontSize: 36,

@@ -327,10 +327,14 @@ export const getUserSettings = async () => {
 const getDefaultSettings = () => ({
   soundEnabled: true,
   musicEnabled: true,
+  musicVolume: 0.5,
+  sfxVolume: 1.0,
   hapticEnabled: true,
   difficulty: 'normal', // easy, normal, hard
   theme: 'default',
   notificationsEnabled: true,
+  showHints: true,
+  autoPlayMusic: true,
 });
 
 // ===== UTILITY FUNCTIONS =====
