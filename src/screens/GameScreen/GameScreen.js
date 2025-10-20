@@ -94,7 +94,8 @@ const GameScreen = () => {
         id: `${item}-${index}-${Math.random()}`, 
         name: item 
     })));
-    
+
+
     setCollected([]);
     setMistakes(0);
     setLevelComplete(false);
@@ -156,6 +157,15 @@ const GameScreen = () => {
       }
     }
   };
+
+  const onPlayNextHandler = () => {
+      const nextRecipeIndex = RECIPES.findIndex(r => r.id === recipeId) + 1;
+      if (nextRecipeIndex < RECIPES.length) {
+        navigation.replace('Game', { recipeId: RECIPES[nextRecipeIndex].id });
+      } else {
+        navigation.goBack();
+      }
+    };
 
   const getStars = () => Math.max(0, 3 - mistakes);
   const totalRequired = recipe.ingredients.length;
@@ -270,7 +280,7 @@ const GameScreen = () => {
         {/* Level Complete Modal */}
         <LevelCompleteModal
           visible={levelComplete}
-          onPlayNext={() => navigation.goBack()}
+          onPlayNext={onPlayNextHandler}
           onReplay={generateGrid}
           onBackToRecipes={() => navigation.goBack()}
           stars={getStars()}

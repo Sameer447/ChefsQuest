@@ -29,9 +29,7 @@ function App() {
       try {
         console.log('🚀 Loading user data from storage...');
         
-        // Initialize sound system first
-        await soundManager.initializeSounds();
-        console.log('🔊 Sound system initialized');
+        // Sound system initializes automatically. We just wait for it if needed.
         
         // Load all user data in parallel
         const [userProgress, userStats, userAchievements, userSettings] = await Promise.all([

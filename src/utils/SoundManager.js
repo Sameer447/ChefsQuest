@@ -23,64 +23,79 @@ class SoundManager {
     this.sfxVolume = 1.0;
     this.isInitialized = false;
     this.isMusicPlaying = false;
-    
-    // Preload sounds on initialization
-    this.initializeSounds();
+    this.initializationPromise = this.initializeSounds();
   }
 
   // Initialize and preload all sounds
-  async initializeSounds() {
-    try {
-      // Load settings from storage
-      const settings = await getUserSettings();
-      this.soundEnabled = settings.soundEnabled !== false;
-      this.musicEnabled = settings.musicEnabled !== false;
-      this.musicVolume = settings.musicVolume || 0.5;
-      this.sfxVolume = settings.sfxVolume || 1.0;
+  initializeSounds() {
+    return new Promise(async (resolve, reject) => {
+      try {
+        // Load settings from storage
+        const settings = await getUserSettings();
+        this.soundEnabled = settings.soundEnabled !== false;
+        this.musicEnabled = settings.musicEnabled !== false;
+        this.musicVolume = settings.musicVolume || 0.5;
+        this.sfxVolume = settings.sfxVolume || 1.0;
 
-      // Preload sound effects
-      // Note: For Android, files must be in android/app/src/main/res/raw/ without extension
-      // For iOS, files should be in Xcode project with extension
-      const soundFiles = {
-        correct: 'correct.mp3',
-        incorrect: 'incorrect.mp3',
-        levelComplete: 'level_complete.mp3',
-        tap: 'tap.mp3',
-      };
+        const soundFiles = {
+          correct: 'correct.mp3',
+          incorrect: 'incorrect.mp3',
+          levelComplete: 'level_complete.mp3',
+          tap: 'tap.mp3',
+        };
 
-      Object.entries(soundFiles).forEach(([key, filename]) => {
-        const soundPath = getSoundPath(filename);
-        this.sounds[key] = new Sound(soundPath, Sound.MAIN_BUNDLE, (error) => {
-          if (error) {
-            console.error(`[SoundManager] Failed to load ${filename}:`, error);
-          } else {
-            console.log(`[SoundManager] Successfully loaded ${filename}`);
-            this.sounds[key].setVolume(this.sfxVolume);
-          }
+        const soundPromises = Object.entries(soundFiles).map(([key, filename]) => {
+          return new Promise((res, rej) => {
+            const soundPath = getSoundPath(filename);
+            const sound = new Sound(soundPath, Sound.MAIN_BUNDLE, (error) => {
+              if (error) {
+                console.error(`[SoundManager] Failed to load ${filename}:`, error);
+                rej(error);
+              } else {
+                console.log(`[SoundManager] Successfully loaded ${filename}`);
+                sound.setVolume(this.sfxVolume);
+                this.sounds[key] = sound;
+                res(sound);
+              }
+            });
+          });
         });
-      });
 
-      // Preload background music
-      const bgMusicPath = getSoundPath('background_music.mp3');
-      this.backgroundMusic = new Sound(bgMusicPath, Sound.MAIN_BUNDLE, (error) => {
-        if (error) {
-          console.error('[SoundManager] Failed to load background music:', error);
-        } else {
-          console.log('[SoundManager] Background music loaded successfully');
-          this.backgroundMusic.setNumberOfLoops(-1); // Loop forever
-          this.backgroundMusic.setVolume(this.musicVolume);
-        }
-      });
+        const bgMusicPromise = new Promise((res, rej) => {
+          const bgMusicPath = getSoundPath('background_music.mp3');
+          const sound = new Sound(bgMusicPath, Sound.MAIN_BUNDLE, (error) => {
+            if (error) {
+              console.error('[SoundManager] Failed to load background music:', error);
+              rej(error);
+            } else {
+              console.log('[SoundManager] Background music loaded successfully');
+              sound.setNumberOfLoops(-1); // Loop forever
+              sound.setVolume(this.musicVolume);
+              this.backgroundMusic = sound;
+              // A small hack for Android to ensure music plays
+              if (Platform.OS === 'android') {
+                sound.play(() => sound.pause());
+              }
+              res(sound);
+            }
+          });
+        });
 
-      this.isInitialized = true;
-      console.log('[SoundManager] Sound system initialized');
-    } catch (error) {
-      console.error('[SoundManager] Error initializing sounds:', error);
-    }
+        await Promise.all([...soundPromises, bgMusicPromise]);
+
+        this.isInitialized = true;
+        console.log('[SoundManager] Sound system fully initialized and ready.');
+        resolve();
+      } catch (error) {
+        console.error('[SoundManager] Error initializing sounds:', error);
+        reject(error);
+      }
+    });
   }
 
   // Play a sound effect
-  playSoundEffect(soundKey) {
+  async playSoundEffect(soundKey) {
+    await this.initializationPromise;
     if (!this.soundEnabled || !this.sounds[soundKey]) {
       return;
     }
@@ -110,8 +125,9 @@ class SoundManager {
   }
 
   // Play background music
-  playBackgroundMusic() {
-    if (!this.musicEnabled || !this.backgroundMusic || this.isMusicPlaying) {
+  async playBackgroundMusic() {
+    await this.initializationPromise;
+    if (!this.musicEnabled || this.isMusicPlaying || !this.backgroundMusic) {
       return;
     }
 

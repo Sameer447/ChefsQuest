@@ -198,6 +198,11 @@ const LevelCompleteModal = ({ visible, onPlayNext, onReplay, onBackToRecipes, st
             {/* Buttons */}
             <View style={styles.buttonContainer}>
               <CustomButton
+                title="Next Level"
+                onPress={onPlayNext}
+                gradient={theme.gradients.success}
+              />
+              <CustomButton
                 title="🏠 Back to Levels"
                 onPress={onBackToRecipes}
                 gradient={theme.gradients.cool}

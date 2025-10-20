@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, Switch, ScrollView, Alert, TouchableOpacity, Animated } from 'react-native';
+import { View, Text, StyleSheet, Switch, ScrollView, Alert, TouchableOpacity, Animated, Image } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import LinearGradient from 'react-native-linear-gradient';
 import Slider from '@react-native-community/slider';
@@ -177,14 +177,14 @@ const SettingsScreen = ({ navigation }) => {
         >
           {/* Header */}
           <View style={styles.header}>
-            <TouchableOpacity 
+            <TouchableOpacity
               style={styles.backButton}
               onPress={() => {
-                playTapSound();
+                // ReactNativeHapticFeedback.trigger('impactLight');
                 navigation.goBack();
               }}
             >
-              <Text style={styles.backIcon}>←</Text>
+             <Image source={require('../../assets/images/back-icon.png')} style={{ width: 24, height: 12 }} />
             </TouchableOpacity>
             <Text style={styles.title}>⚙️ Settings</Text>
           </View>
