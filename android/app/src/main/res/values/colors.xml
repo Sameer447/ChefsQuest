@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Primary brand color -->
+    <color name="primary">#FF6B6B</color>
+    <color name="primary_dark">#E85555</color>
+    <color name="primary_light">#FF8585</color>
+    
+    <!-- Secondary colors -->
+    <color name="secondary">#4ECDC4</color>
+    <color name="accent">#FFE66D</color>
+    
+    <!-- Background colors -->
+    <color name="background">#FFFFFF</color>
+    <color name="surface">#F8F9FA</color>
+    
+    <!-- Text colors -->
+    <color name="text_primary">#2D3436</color>
+    <color name="text_secondary">#636E72</color>
+    
+    <!-- System UI colors -->
+    <color name="status_bar">#FF6B6B</color>
+    <color name="navigation_bar">#FFFFFF</color>
+    
+    <!-- Success/Error colors -->
+    <color name="success">#00B894</color>
+    <color name="error">#D63031</color>
+    <color name="warning">#FDCB6E</color>
+</resources>

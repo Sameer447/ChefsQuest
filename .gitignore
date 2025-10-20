@@ -73,3 +73,7 @@ yarn-error.log
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+
+
+#Ignore vscode AI rules
+.github/instructions/codacy.instructions.md
