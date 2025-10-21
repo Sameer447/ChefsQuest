@@ -1,0 +1,434 @@
+"use client";
+
+import React from 'react';
+
+const PrivacyPolicyPage = () => {
+  return (
+    <>
+      <style jsx global>{`
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        
+        h1 {
+            color: #FF6B35;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            border-bottom: 4px solid #FF6B35;
+            padding-bottom: 15px;
+        }
+        
+        .last-updated {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 30px;
+            font-size: 0.95em;
+        }
+        
+        h2 {
+            color: #FF6B35;
+            font-size: 1.8em;
+            margin-top: 40px;
+            margin-bottom: 15px;
+            padding-top: 20px;
+            border-top: 2px solid #f0f0f0;
+        }
+        
+        h3 {
+            color: #555;
+            font-size: 1.3em;
+            margin-top: 25px;
+            margin-bottom: 12px;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+        
+        li {
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+        
+        .summary-box {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            border-left: 5px solid #FF6B35;
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 8px;
+            font-size: 1.1em;
+        }
+        
+        .summary-box h2 {
+            margin-top: 0;
+            border-top: none;
+            padding-top: 0;
+            font-size: 1.5em;
+        }
+        
+        .contact-box {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border-left: 5px solid #2196F3;
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 8px;
+        }
+        
+        .contact-box h2 {
+            margin-top: 0;
+            border-top: none;
+            padding-top: 0;
+            color: #2196F3;
+        }
+        
+        .intro {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 5px solid #4CAF50;
+        }
+        
+        strong {
+            color: #FF6B35;
+        }
+        
+        .checkmark {
+            color: #4CAF50;
+            font-weight: bold;
+            margin-right: 5px;
+        }
+        
+        .cross {
+            color: #f44336;
+            font-weight: bold;
+            margin-right: 5px;
+        }
+        
+        .footer {
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 3px solid #f0f0f0;
+            text-align: center;
+            color: #666;
+            font-size: 0.9em;
+        }
+        
+        a {
+            color: #2196F3;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            h2 {
+                font-size: 1.5em;
+            }
+            
+            h3 {
+                font-size: 1.2em;
+            }
+        }
+      `}</style>
+      <div className="container">
+        <h1>🍳 Privacy Policy for Chef's Quest</h1>
+        <p className="last-updated"><strong>Last Updated:</strong> October 20, 2025</p>
+        
+        <div className="intro">
+            <h2>Introduction</h2>
+            <p>Welcome to Chef's Quest ("we," "our," or "us"). This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our mobile application Chef's Quest (the "App"). Please read this privacy policy carefully. If you do not agree with the terms of this privacy policy, please do not access the application.</p>
+        </div>
+
+        <h2>📊 Information We Collect</h2>
+        
+        <h3>Information Automatically Collected</h3>
+        <p>We do <strong>NOT</strong> automatically collect any personal information from our users. The App is designed to work offline and does not transmit any data to external servers.</p>
+        
+        <h3>Information Stored Locally</h3>
+        <p>The following information is stored <strong>locally on your device only</strong> and is never transmitted to our servers or any third parties:</p>
+        <ul>
+            <li><strong>Game Progress:</strong> Your completed levels, earned stars, and unlocked recipes</li>
+            <li><strong>Game Statistics:</strong> Total games played, levels completed, perfect games, current streak</li>
+            <li><strong>Achievements:</strong> Unlocked achievements and their unlock dates</li>
+            <li><strong>User Settings:</strong> Sound preferences (music volume, SFX volume, music enabled/disabled, sound effects enabled/disabled), haptic feedback preferences, hint preferences</li>
+            <li><strong>Session Data:</strong> Game session timestamps and durations for analytics purposes (stored locally only)</li>
+        </ul>
+        
+        <h3>Information We Do NOT Collect</h3>
+        <ul>
+            <li><span className="cross">❌</span> We do <strong>NOT</strong> collect any personally identifiable information (PII)</li>
+            <li><span className="cross">❌</span> We do <strong>NOT</strong> collect your name, email address, or phone number</li>
+            <li><span className="cross">❌</span> We do <strong>NOT</strong> collect your location data</li>
+            <li><span className="cross">❌</span> We do <strong>NOT</strong> collect your device identifiers (IMEI, MAC address, etc.)</li>
+            <li><span className="cross">❌</span> We do <strong>NOT</strong> use cookies or tracking technologies</li>
+            <li><span className="cross">❌</span> We do <strong>NOT</strong> collect data through analytics services</li>
+            <li><span className="cross">❌</span> We do <strong>NOT</strong> share any data with third parties</li>
+            <li><span className="cross">❌</span> We do <strong>NOT</strong> use advertising networks or SDKs</li>
+        </ul>
+
+        <h2>🎯 How We Use Your Information</h2>
+        <p>Since all data is stored locally on your device:</p>
+        <ul>
+            <li><strong>Game Progress:</strong> To track your completed levels and display your achievements</li>
+            <li><strong>Statistics:</strong> To show your performance metrics within the app</li>
+            <li><strong>Settings:</strong> To remember your audio and gameplay preferences</li>
+            <li><strong>Session Data:</strong> To provide gameplay insights (displayed only to you)</li>
+        </ul>
+
+        <h2>🔒 Data Storage and Security</h2>
+        
+        <h3>Local Storage Only</h3>
+        <p>All data is stored on your device using:</p>
+        <ul>
+            <li><strong>AsyncStorage</strong> (React Native's local storage system)</li>
+            <li>Data remains on your device and is <strong>never uploaded</strong> to any server</li>
+            <li>Data is <strong>never transmitted</strong> over the internet</li>
+            <li>Data is <strong>never shared</strong> with third parties</li>
+        </ul>
+        
+        <h3>Data Security</h3>
+        <ul>
+            <li>All data is stored securely in your device's local storage</li>
+            <li>No data transmission occurs, eliminating network-related security risks</li>
+            <li>You have full control over your data through the device's app settings</li>
+        </ul>
+        
+        <h3>Data Retention</h3>
+        <p>Data persists on your device until you:</p>
+        <ul>
+            <li>Manually reset your progress using the in-app "Reset Progress" button</li>
+            <li>Uninstall the application</li>
+            <li>Clear the app's data through your device settings</li>
+        </ul>
+
+        <h2>👶 Children's Privacy</h2>
+        <p>Chef's Quest is a <strong>family-friendly educational game</strong> suitable for all ages, including children under 13.</p>
+        
+        <p>We are committed to protecting children's privacy:</p>
+        <ul>
+            <li><span className="checkmark">✅</span> We do <strong>NOT</strong> knowingly collect any personal information from children</li>
+            <li><span className="checkmark">✅</span> We do <strong>NOT</strong> require any registration or account creation</li>
+            <li><span className="checkmark">✅</span> The app works <strong>completely offline</strong></li>
+            <li><span className="checkmark">✅</span> No data is transmitted outside the device</li>
+            <li><span className="checkmark">✅</span> Parents/guardians can delete all data at any time through:
+                <ul>
+                    <li>The in-app "Reset Progress" button in Settings</li>
+                    <li>Device settings → Apps → Chef's Quest → Clear Data</li>
+                    <li>Uninstalling the app</li>
+                </ul>
+            </li>
+        </ul>
+        
+        <p>The app complies with:</p>
+        <ul>
+            <li><strong>COPPA</strong> (Children's Online Privacy Protection Act)</li>
+            <li><strong>GDPR</strong> (General Data Protection Regulation) - applicable provisions</li>
+            <li><strong>CCPA</strong> (California Consumer Privacy Act) - applicable provisions</li>
+        </ul>
+
+        <h2>🔌 Third-Party Services</h2>
+        <p>Chef's Quest does <strong>NOT</strong> use any third-party services, including:</p>
+        <ul>
+            <li><span className="cross">❌</span> Analytics services (Google Analytics, Firebase Analytics, etc.)</li>
+            <li><span className="cross">❌</span> Advertising networks (AdMob, Facebook Ads, etc.)</li>
+            <li><span className="cross">❌</span> Social media integrations</li>
+            <li><span className="cross">❌</span> Cloud storage services</li>
+            <li><span className="cross">❌</span> Crash reporting services</li>
+            <li><span className="cross">❌</span> User tracking services</li>
+        </ul>
+        
+        <p>The app uses only these open-source libraries for functionality:</p>
+        <ul>
+            <li><strong>React Native</strong> (core framework)</li>
+            <li><strong>React Navigation</strong> (app navigation)</li>
+            <li><strong>AsyncStorage</strong> (local data storage)</li>
+            <li><strong>React Native Sound</strong> (audio playback)</li>
+            <li><strong>React Native Linear Gradient</strong> (UI styling)</li>
+            <li><strong>React Native Haptic Feedback</strong> (vibration feedback)</li>
+            <li><strong>React Native Safe Area Context</strong> (screen layout)</li>
+            <li><strong>Lottie React Native</strong> (animations)</li>
+        </ul>
+        <p><em>None of these libraries collect or transmit personal data.</em></p>
+
+        <h2>👤 Your Data Rights</h2>
+        <p>Since all data is stored locally on your device, you have complete control:</p>
+        
+        <h3>Right to Access</h3>
+        <ul>
+            <li>All your data is accessible within the app</li>
+            <li>View your progress, statistics, and achievements anytime</li>
+        </ul>
+        
+        <h3>Right to Export</h3>
+        <ul>
+            <li>Use the "Export Data" feature in Settings to view all stored data</li>
+            <li>Data is presented in JSON format for your review</li>
+        </ul>
+        
+        <h3>Right to Delete</h3>
+        <ul>
+            <li>Use the "Reset Progress" button in Settings to delete all game data</li>
+            <li>Uninstall the app to remove all data permanently</li>
+            <li>Clear app data through device settings</li>
+        </ul>
+        
+        <h3>Right to Control</h3>
+        <ul>
+            <li>Disable sound effects and music through Settings</li>
+            <li>Disable haptic feedback through Settings</li>
+            <li>Control all app behaviors through Settings</li>
+        </ul>
+
+        <h2>🌍 International Data Transfers</h2>
+        <p>Since all data remains on your device:</p>
+        <ul>
+            <li>No data is transferred internationally</li>
+            <li>No data crosses borders</li>
+            <li>No data is stored on servers in any country</li>
+            <li>The app works identically regardless of your location</li>
+        </ul>
+
+        <h2>📝 Changes to This Privacy Policy</h2>
+        <p>We may update our Privacy Policy from time to time. We will notify you of any changes by:</p>
+        <ul>
+            <li>Updating the "Last Updated" date at the top of this Privacy Policy</li>
+            <li>Displaying a notification within the app (if applicable)</li>
+        </ul>
+        <p>You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.</p>
+
+        <h2>🛡️ Data Breach Notification</h2>
+        <p>Since no data is transmitted or stored on external servers:</p>
+        <ul>
+            <li>There is no risk of server-side data breaches</li>
+            <li>Your data remains secure on your device</li>
+            <li>We cannot access your data, even if we wanted to</li>
+        </ul>
+        <p>In the unlikely event of a security vulnerability in the app itself, we will:</p>
+        <ul>
+            <li>Release a security update immediately</li>
+            <li>Notify users through the app store update notes</li>
+        </ul>
+
+        <h2>📱 Permissions</h2>
+        <p>Chef's Quest requests the following device permissions:</p>
+        
+        <h3>Android Permissions</h3>
+        <ul>
+            <li><strong>VIBRATE</strong> - For haptic feedback when interacting with the game
+                <ul>
+                    <li>Optional: Can be disabled in Settings</li>
+                    <li>Used only for tactile feedback</li>
+                </ul>
+            </li>
+            <li><strong>MODIFY_AUDIO_SETTINGS</strong> - For controlling sound volume
+                <ul>
+                    <li>Optional: Can be disabled in Settings</li>
+                    <li>Used only for in-game audio</li>
+                </ul>
+            </li>
+        </ul>
+        
+        <h3>iOS Permissions</h3>
+        <ul>
+            <li><strong>Haptic Feedback</strong> - For vibration feedback
+                <ul>
+                    <li>Optional: Can be disabled in Settings</li>
+                </ul>
+            </li>
+        </ul>
+        
+        <p><strong>We do NOT request:</strong></p>
+        <ul>
+            <li><span className="cross">❌</span> Camera or Photo Library access</li>
+            <li><span className="cross">❌</span> Location access</li>
+            <li><span className="cross">❌</span> Contacts access</li>
+            <li><span className="cross">❌</span> Calendar access</li>
+            <li><span className="cross">❌</span> Microphone access</li>
+            <li><span className="cross">❌</span> Storage access (beyond app-specific storage)</li>
+            <li><span className="cross">❌</span> Internet/Network access for data transmission</li>
+        </ul>
+
+        <div className="contact-box">
+            <h2>📧 Contact Us</h2>
+            <p>If you have any questions or concerns about this Privacy Policy, please contact us:</p>
+            <p><strong>Email:</strong> <a href="mailto:sameer.chefs.quest@gmail.com">sameer.chefs.quest@gmail.com</a></p>
+            <p><strong>Developer:</strong> Sameer447</p>
+            <p><strong>App Name:</strong> Chef's Quest</p>
+            <p><strong>Response Time:</strong> We aim to respond within 48 hours</p>
+        </div>
+
+        <h2>⚖️ Compliance</h2>
+        <p>This Privacy Policy is designed to comply with:</p>
+        <ul>
+            <li><strong>GDPR</strong> (General Data Protection Regulation) - EU</li>
+            <li><strong>COPPA</strong> (Children's Online Privacy Protection Act) - USA</li>
+            <li><strong>CCPA</strong> (California Consumer Privacy Act) - USA</li>
+            <li><strong>PIPEDA</strong> (Personal Information Protection and Electronic Documents Act) - Canada</li>
+            <li><strong>APP</strong> (Australian Privacy Principles) - Australia</li>
+            <li><strong>LGPD</strong> (Lei Geral de Proteção de Dados) - Brazil</li>
+            <li><strong>POPIA</strong> (Protection of Personal Information Act) - South Africa</li>
+            <li><strong>Google Play Store</strong> Developer Policy</li>
+            <li><strong>Apple App Store</strong> Review Guidelines</li>
+        </ul>
+
+        <div className="summary-box">
+            <h2>📋 Summary - In Simple Terms</h2>
+            <ul>
+                <li><span className="checkmark">✅</span> <strong>We DON'T collect your personal data</strong></li>
+                <li><span className="checkmark">✅</span> <strong>Everything stays on your device</strong></li>
+                <li><span className="checkmark">✅</span> <strong>No internet connection needed</strong></li>
+                <li><span className="checkmark">✅</span> <strong>No ads, no tracking, no analytics</strong></li>
+                <li><span className="checkmark">✅</span> <strong>Safe for children</strong></li>
+                <li><span className="checkmark">✅</span> <strong>You control your data</strong></li>
+                <li><span className="checkmark">✅</span> <strong>Delete anytime through Settings</strong></li>
+            </ul>
+        </div>
+
+        <div className="footer">
+            <p><strong>Privacy Policy Version:</strong> 1.0</p>
+            <p><strong>Effective Date:</strong> October 20, 2025</p>
+            <p><strong>Last Reviewed:</strong> October 20, 2025</p>
+            <p>© 2025 Chef's Quest. All rights reserved.</p>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default PrivacyPolicyPage;
