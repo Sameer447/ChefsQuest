@@ -167,12 +167,12 @@ const PrivacyPolicyPage = () => {
         }
       `}</style>
       <div className="container">
-        <h1>🍳 Privacy Policy for Chef's Quest</h1>
+        <h1>🍳 Privacy Policy for Chef&apos;s Quest</h1>
         <p className="last-updated"><strong>Last Updated:</strong> October 20, 2025</p>
         
         <div className="intro">
             <h2>Introduction</h2>
-            <p>Welcome to Chef's Quest ("we," "our," or "us"). This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our mobile application Chef's Quest (the "App"). Please read this privacy policy carefully. If you do not agree with the terms of this privacy policy, please do not access the application.</p>
+            <p>Welcome to Chef&apos;s Quest (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;). This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our mobile application Chef&apos;s Quest (the &quot;App&quot;). Please read this privacy policy carefully. If you do not agree with the terms of this privacy policy, please do not access the application.</p>
         </div>
 
         <h2>📊 Information We Collect</h2>
@@ -216,7 +216,7 @@ const PrivacyPolicyPage = () => {
         <h3>Local Storage Only</h3>
         <p>All data is stored on your device using:</p>
         <ul>
-            <li><strong>AsyncStorage</strong> (React Native's local storage system)</li>
+            <li><strong>AsyncStorage</strong> (React Native&apos;s local storage system)</li>
             <li>Data remains on your device and is <strong>never uploaded</strong> to any server</li>
             <li>Data is <strong>never transmitted</strong> over the internet</li>
             <li>Data is <strong>never shared</strong> with third parties</li>
@@ -224,23 +224,23 @@ const PrivacyPolicyPage = () => {
         
         <h3>Data Security</h3>
         <ul>
-            <li>All data is stored securely in your device's local storage</li>
+            <li>All data is stored securely in your device&apos;s local storage</li>
             <li>No data transmission occurs, eliminating network-related security risks</li>
-            <li>You have full control over your data through the device's app settings</li>
+            <li>You have full control over your data through the device&apos;s app settings</li>
         </ul>
         
         <h3>Data Retention</h3>
         <p>Data persists on your device until you:</p>
         <ul>
-            <li>Manually reset your progress using the in-app "Reset Progress" button</li>
+            <li>Manually reset your progress using the in-app &quot;Reset Progress&quot; button</li>
             <li>Uninstall the application</li>
-            <li>Clear the app's data through your device settings</li>
+            <li>Clear the app&apos;s data through your device settings</li>
         </ul>
 
-        <h2>👶 Children's Privacy</h2>
-        <p>Chef's Quest is a <strong>family-friendly educational game</strong> suitable for all ages, including children under 13.</p>
+        <h2>👶 Children&apos;s Privacy</h2>
+        <p>Chef&apos;s Quest is a <strong>family-friendly educational game</strong> suitable for all ages, including children under 13.</p>
         
-        <p>We are committed to protecting children's privacy:</p>
+        <p>We are committed to protecting children&apos;s privacy:</p>
         <ul>
             <li><span className="checkmark">✅</span> We do <strong>NOT</strong> knowingly collect any personal information from children</li>
             <li><span className="checkmark">✅</span> We do <strong>NOT</strong> require any registration or account creation</li>
@@ -248,8 +248,8 @@ const PrivacyPolicyPage = () => {
             <li><span className="checkmark">✅</span> No data is transmitted outside the device</li>
             <li><span className="checkmark">✅</span> Parents/guardians can delete all data at any time through:
                 <ul>
-                    <li>The in-app "Reset Progress" button in Settings</li>
-                    <li>Device settings → Apps → Chef's Quest → Clear Data</li>
+                    <li>The in-app &quot;Reset Progress&quot; button in Settings</li>
+                    <li>Device settings → Apps → Chef&apos;s Quest → Clear Data</li>
                     <li>Uninstalling the app</li>
                 </ul>
             </li>
@@ -257,13 +257,13 @@ const PrivacyPolicyPage = () => {
         
         <p>The app complies with:</p>
         <ul>
-            <li><strong>COPPA</strong> (Children's Online Privacy Protection Act)</li>
+            <li><strong>COPPA</strong> (Children&apos;s Online Privacy Protection Act)</li>
             <li><strong>GDPR</strong> (General Data Protection Regulation) - applicable provisions</li>
             <li><strong>CCPA</strong> (California Consumer Privacy Act) - applicable provisions</li>
         </ul>
 
         <h2>🔌 Third-Party Services</h2>
-        <p>Chef's Quest does <strong>NOT</strong> use any third-party services, including:</p>
+        <p>Chef&apos;s Quest does <strong>NOT</strong> use any third-party services, including:</p>
         <ul>
             <li><span className="cross">❌</span> Analytics services (Google Analytics, Firebase Analytics, etc.)</li>
             <li><span className="cross">❌</span> Advertising networks (AdMob, Facebook Ads, etc.)</li>
@@ -297,13 +297,13 @@ const PrivacyPolicyPage = () => {
         
         <h3>Right to Export</h3>
         <ul>
-            <li>Use the "Export Data" feature in Settings to view all stored data</li>
+            <li>Use the &quot;Export Data&quot; feature in Settings to view all stored data</li>
             <li>Data is presented in JSON format for your review</li>
         </ul>
         
         <h3>Right to Delete</h3>
         <ul>
-            <li>Use the "Reset Progress" button in Settings to delete all game data</li>
+            <li>Use the &quot;Reset Progress&quot; button in Settings to delete all game data</li>
             <li>Uninstall the app to remove all data permanently</li>
             <li>Clear app data through device settings</li>
         </ul>
@@ -327,7 +327,7 @@ const PrivacyPolicyPage = () => {
         <h2>📝 Changes to This Privacy Policy</h2>
         <p>We may update our Privacy Policy from time to time. We will notify you of any changes by:</p>
         <ul>
-            <li>Updating the "Last Updated" date at the top of this Privacy Policy</li>
+            <li>Updating the &quot;Last Updated&quot; date at the top of this Privacy Policy</li>
             <li>Displaying a notification within the app (if applicable)</li>
         </ul>
         <p>You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.</p>
@@ -346,7 +346,7 @@ const PrivacyPolicyPage = () => {
         </ul>
 
         <h2>📱 Permissions</h2>
-        <p>Chef's Quest requests the following device permissions:</p>
+        <p>Chef&apos;s Quest requests the following device permissions:</p>
         
         <h3>Android Permissions</h3>
         <ul>
@@ -387,7 +387,7 @@ const PrivacyPolicyPage = () => {
         <div className="contact-box">
             <h2>📧 Contact Us</h2>
             <p>If you have any questions or concerns about this Privacy Policy, please contact us:</p>
-            <p><strong>Email:</strong> <a href="mailto:sameer.chefs.quest@gmail.com">sameer.chefs.quest@gmail.com</a></p>
+            <p><strong>Email:</strong> <a href="mailto:twinklemart95@gmail.com">twinklemart95@gmail.com</a></p>
             <p><strong>Developer:</strong> Sameer447</p>
             <p><strong>App Name:</strong> Chef's Quest</p>
             <p><strong>Response Time:</strong> We aim to respond within 48 hours</p>
@@ -397,7 +397,7 @@ const PrivacyPolicyPage = () => {
         <p>This Privacy Policy is designed to comply with:</p>
         <ul>
             <li><strong>GDPR</strong> (General Data Protection Regulation) - EU</li>
-            <li><strong>COPPA</strong> (Children's Online Privacy Protection Act) - USA</li>
+            <li><strong>COPPA</strong> (Children&apos;s Online Privacy Protection Act) - USA</li>
             <li><strong>CCPA</strong> (California Consumer Privacy Act) - USA</li>
             <li><strong>PIPEDA</strong> (Personal Information Protection and Electronic Documents Act) - Canada</li>
             <li><strong>APP</strong> (Australian Privacy Principles) - Australia</li>
@@ -410,7 +410,7 @@ const PrivacyPolicyPage = () => {
         <div className="summary-box">
             <h2>📋 Summary - In Simple Terms</h2>
             <ul>
-                <li><span className="checkmark">✅</span> <strong>We DON'T collect your personal data</strong></li>
+                <li><span className="checkmark">✅</span> <strong>We DON&apos;T collect your personal data</strong></li>
                 <li><span className="checkmark">✅</span> <strong>Everything stays on your device</strong></li>
                 <li><span className="checkmark">✅</span> <strong>No internet connection needed</strong></li>
                 <li><span className="checkmark">✅</span> <strong>No ads, no tracking, no analytics</strong></li>
@@ -424,7 +424,7 @@ const PrivacyPolicyPage = () => {
             <p><strong>Privacy Policy Version:</strong> 1.0</p>
             <p><strong>Effective Date:</strong> October 20, 2025</p>
             <p><strong>Last Reviewed:</strong> October 20, 2025</p>
-            <p>© 2025 Chef's Quest. All rights reserved.</p>
+            <p>© 2025 Chef&apos;s Quest. All rights reserved.</p>
         </div>
       </div>
     </>
